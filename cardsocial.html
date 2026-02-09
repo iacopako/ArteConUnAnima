@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>MARTYZ | Social Card</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .social-card-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 60px);
+            padding: 40px 20px;
+        }
+
+        .social-card-container {
+            width: 100%;
+            max-width: 450px;
+            background: linear-gradient(135deg, #241a44 0%, #1a1333 100%);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .social-card-container .profile-section {
+            margin-bottom: 30px;
+        }
+
+        .social-card-container .profile-image {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .social-card-container .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .social-card-container h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .social-card-container .subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .social-link:hover {
+            background: rgba(139, 92, 246, 0.2);
+            border-color: var(--primary);
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .social-link-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .social-link-icon {
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(139, 92, 246, 0.15);
+            border-radius: 8px;
+        }
+
+        .social-link-text {
+            text-align: left;
+        }
+
+        .social-link-text h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .social-link-text p {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .social-link-arrow {
+            font-size: 18px;
+            color: var(--primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-link:hover .social-link-arrow {
+            opacity: 1;
+        }
+
+        .footer-info {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(139, 92, 246, 0.2);
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .footer-info a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-info a:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="MARTYZ">
+            <span>MARTYZ</span>
+        </div>
+
+        <div class="menu">
+            <a href="index.html">HOME</a>
+            <a href="sconti.html">SCONTI E OFFERTE</a>
+            <a href="chi-sono.html">CHI SONO</a>
+            <a href="cardsocial.html">SOCIAL</a>
+            <a href="shop.html">SHOP</a>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Cerca nelle opere..." class="search-input">
+            <span class="search-icon">🔍</span>
+        </div>
+        
+        <div class="icons">
+            <a href="mailto:tua-email@example.com" title="Contatti">📧</a>
+        </div>
+    </nav>
+</header>
+
+<main class="social-card-page">
+    <div class="social-card-container">
+        <div class="profile-section">
+            <div class="profile-image">
+                <img src="profile.jpg" alt="MARTYZ">
+            </div>
+            <h1>MARTYZ</h1>
+            <p class="subtitle">~ ∘ ~</p>
+        </div>
+
+        <div class="social-links">
+            <a href="#" target="_blank" class="social-link">
+                <div class="social-link-content">
+                    <div class="social-link-icon">📱</div>
+                    <div class="social-link-text">
+                        <h3>Twitch</h3>
+                        <p>Seguimi in diretta</p>
+                    </div>
+                </div>
+                <div class="social-link-arrow">→</div>
+            </a>
+
+            <a href="#" target="_blank" class="social-link">
+                <div class="social-link-content">
+                    <div class="social-link-icon">💬</div>
+                    <div class="social-link-text">
+                        <h3>Discord</h3>
+                        <p>Unisciti alla community</p>
+                    </div>
+                </div>
+                <div class="social-link-arrow">→</div>
+            </a>
+
+            <a href="#" target="_blank" class="social-link">
+                <div class="social-link-content">
+                    <div class="social-link-icon">🎁</div>
+                    <div class="social-link-text">
+                        <h3>Wishlist</h3>
+                        <p>Scopri cosa amo</p>
+                    </div>
+                </div>
+                <div class="social-link-arrow">→</div>
+            </a>
+
+            <a href="#" target="_blank" class="social-link">
+                <div class="social-link-content">
+                    <div class="social-link-icon">🎵</div>
+                    <div class="social-link-text">
+                        <h3>TikTok</h3>
+                        <p>Contenuti brevi e creativi</p>
+                    </div>
+                </div>
+                <div class="social-link-arrow">→</div>
+            </a>
+
+            <a href="#" target="_blank" class="social-link">
+                <div class="social-link-content">
+                    <div class="social-link-icon">✨</div>
+                    <div class="social-link-text">
+                        <h3>Cosplay Wishlist</h3>
+                        <p>Progetti futuri</p>
+                    </div>
+                </div>
+                <div class="social-link-arrow">→</div>
+            </a>
+
+            <a href="#" target="_blank" class="social-link">
+                <div class="social-link-content">
+                    <div class="social-link-icon">📷</div>
+                    <div class="social-link-text">
+                        <h3>Instagram</h3>
+                        <p>Galleria completa</p>
+                    </div>
+                </div>
+                <div class="social-link-arrow">→</div>
+            </a>
+
+            <a href="mailto:tua-email@example.com" class="social-link">
+                <div class="social-link-content">
+                    <div class="social-link-icon">📧</div>
+                    <div class="social-link-text">
+                        <h3>Business & Contatti</h3>
+                        <p>Collaborazioni e info</p>
+                    </div>
+                </div>
+                <div class="social-link-arrow">→</div>
+            </a>
+        </div>
+
+        <div class="footer-info">
+            <a href="#">Privacy Policy</a>
+            <span>•</span>
+            <a href="#">Cookie Preferences</a>
+            <span>•</span>
+            <a href="#">Report</a>
+            <span>•</span>
+            <a href="#">Explore</a>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2026 MARTYZ | Arte con un'Anima</p>
+        <div class="footer-socials">
+            <a href="#" target="_blank" title="Instagram">📷</a>
+            <a href="#" target="_blank" title="TikTok">🎵</a>
+            <a href="#" target="_blank" title="X">𝕏</a>
+            <a href="#" target="_blank" title="YouTube">▶️</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                const query = this.value.trim();
+                if (query) {
+                    window.location.href = 'shop.html?search=' + encodeURIComponent(query);
+                }
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
