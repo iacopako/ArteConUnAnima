@@ -197,3 +197,34 @@ header {
 .socials a:hover {
     color: #c084fc;
 }
+.page {
+    background: linear-gradient(180deg, #0b0615, #120726);
+    color: #eee;
+    padding: 80px 20px;
+}
+
+.about {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-text h1 {
+    color: #a855f7;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: #ddd;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.about-image img {
+    max-width: 350px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(168,85,247,0.3);
+}
