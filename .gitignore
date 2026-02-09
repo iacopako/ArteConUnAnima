@@ -1,0 +1,10 @@
+# File di sistema
+.DS_Store
+Thumbs.db
+
+# Backup temporanei
+*.bak
+*.tmp
+
+# Cartelle editor (VS Code)
+.vscode/
