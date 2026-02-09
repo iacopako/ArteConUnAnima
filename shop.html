@@ -21,10 +21,13 @@
             <a href="shop.html">SHOP</a>
         </div>
 
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Cerca nelle opere..." class="search-input">
+            <span class="search-icon">🔍</span>
+        </div>
+        
         <div class="icons">
-            <span>📦</span>
-            <span>📧</span>
-            <span>🔍</span>
+            <a href="mailto:tua-email@example.com" title="Contatti">📧</a>
         </div>
     </nav>
 </header>
@@ -50,15 +53,155 @@
         Disponibile su Vinted ed eBay.
       </p>
       <div class="art-buttons">
-        <a href="#" class="btn secondary">Vinted</a>
-        <a href="#" class="btn secondary">eBay</a>
-        <a href="#" class="btn primary">Dettagli</a>
+        <a href="https://www.vinted.it/member/100999246" target="_blank" class="btn secondary">Vinted</a>
+        <a href="https://www.ebay.it/usr/pakop-9220" target="_blank" class="btn secondary">eBay</a>
       </div>
     </div>
 
     <!-- duplicabile -->
   </section>
 
+  <!-- CAROSELLO DETTAGLI PRODOTTO -->
+  <section class="carousel-section">
+    <h2>Scopri i dettagli</h2>
+    
+    <div class="carousel-container">
+      <div class="carousel-items">
+        <!-- Aggiungi i tuoi prodotti qui -->
+        <div class="carousel-item">
+          <div class="carousel-image">
+            <img src="opera1.jpg" alt="Opera 1">
+          </div>
+          <div class="carousel-info">
+            <h3>Titolo Opera 1</h3>
+            <p>Descrizione dettagliata del primo prodotto. Opera originale dipinta a mano con tecniche miste su tela. Perfetta per chi ama l'arte autentica e originale.</p>
+            <div class="carousel-buttons">
+              <a href="https://www.vinted.it/member/100999246" target="_blank" class="btn secondary">Vinted</a>
+              <a href="https://www.ebay.it/usr/pakop-9220" target="_blank" class="btn secondary">eBay</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="carousel-image">
+            <img src="opera2.jpg" alt="Opera 2">
+          </div>
+          <div class="carousel-info">
+            <h3>Titolo Opera 2</h3>
+            <p>Descrizione dettagliata del secondo prodotto. Una creazione unica che rappresenta emozioni e visioni personali. Realizzata con attenzione ai dettagli.</p>
+            <div class="carousel-buttons">
+              <a href="https://www.vinted.it/member/100999246" target="_blank" class="btn secondary">Vinted</a>
+              <a href="https://www.ebay.it/usr/pakop-9220" target="_blank" class="btn secondary">eBay</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Controlli carosello -->
+      <button class="carousel-btn prev">❮</button>
+      <button class="carousel-btn next">❯</button>
+
+      <!-- Dots -->
+      <div class="carousel-dots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-</html>
+<script>
+  // Carosello
+  let currentSlide = 0;
+  const items = document.querySelectorAll('.carousel-item');
+  const dots = document.querySelectorAll('.dot');
+  const nextBtn = document.querySelector('.carousel-btn.next');
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+
+  function showSlide(n) {
+    const totalSlides = items.length;
+    
+    if (n >= totalSlides) {
+      currentSlide = 0;
+    } else if (n < 0) {
+      currentSlide = totalSlides - 1;
+    } else {
+      currentSlide = n;
+    }
+
+    // Nascondi tutti gli items
+    items.forEach(item => item.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+
+    // Mostra il slide attuale
+    items[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+  }
+
+  // Bottoni navigazione
+  nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+  prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+
+  // Dots
+  dots.forEach(dot => {
+    dot.addEventListener('click', function() {
+      showSlide(parseInt(this.dataset.index));
+    });
+  });
+
+  // Inizializza
+  showSlide(0);
+
+  // RICERCA PRODOTTI
+  const searchInput = document.getElementById('searchInput');
+  const artCards = document.querySelectorAll('.art-card');
+
+  // Controlla se il parametro di ricerca è stato passato nell'URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchQuery = urlParams.get('search');
+  if (searchQuery) {
+    searchInput.value = decodeURIComponent(searchQuery);
+    filterProducts(searchQuery);
+  }
+
+  searchInput.addEventListener('input', function() {
+    const query = this.value.toLowerCase();
+    
+    if (query === '') {
+      artCards.forEach(card => card.style.display = 'block');
+    } else {
+      filterProducts(query);
+    }
+  });
+
+  function filterProducts(query) {
+    artCards.forEach(card => {
+      const title = card.querySelector('h3').textContent.toLowerCase();
+      const description = card.querySelector('p').textContent.toLowerCase();
+      
+      if (title.includes(query) || description.includes(query)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+<script>
+  // Script globale di ricerca aggiuntivo
+  // Aggiunge la possibilità di cercare premendo invio da qualsiasi pagina
+  const globalSearchInput = document.getElementById('searchInput');
+  if (globalSearchInput && !document.querySelector('.carousel-section')) {
+    globalSearchInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        const query = this.value.trim();
+        if (query) {
+          window.location.href = 'shop.html?search=' + encodeURIComponent(query);
+        }
+      }
+    });
+  }
+</script>

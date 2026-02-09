@@ -21,10 +21,13 @@
             <a href="shop.html">SHOP</a>
         </div>
 
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Cerca nelle opere..." class="search-input">
+            <span class="search-icon">🔍</span>
+        </div>
+        
         <div class="icons">
-            <span>📦</span>
-            <span>📧</span>
-            <span>🔍</span>
+            <a href="mailto:tua-email@example.com" title="Contatti">📧</a>
         </div>
     </nav>
 </header>
@@ -70,5 +73,20 @@
   </section>
 
 </main>
+
+<script>
+  // Script globale di ricerca
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput) {
+    searchInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const query = this.value.trim();
+        if (query) {
+          window.location.href = 'shop.html?search=' + encodeURIComponent(query);
+        }
+      }
+    });
+  }
+</script>
 
 </html>
